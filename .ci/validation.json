@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "baseline_version": 1,
+  "managed_by": "fleet-validation",
+  "profile": "node",
+  "adapter_status": "configured",
+  "setup": [
+    [
+      "npm",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ]
+  ],
+  "default_branch": "main",
+  "runtime": {
+    "node": "22"
+  },
+  "checks": [
+    {
+      "name": "approved-check-1",
+      "argv": [
+        "node",
+        "scripts/collect-page-meta.mjs",
+        "--check"
+      ],
+      "cwd": ".",
+      "timeout": 300
+    }
+  ],
+  "notes": [
+    "Approved enrollment-plan adapter; no deployment or live data required."
+  ]
+}
